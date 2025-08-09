@@ -1,0 +1,267 @@
+// .form-container {
+//     max-width: 600px;
+//     margin: auto;
+//     background-color: white;
+//     padding: 20px;
+//     border-radius: 12px;
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+// }
+.container {
+    display: flex;
+    justify-content: center;
+    /* จัดกึ่งกลางแนวนอน */
+    align-items: center;
+    /* จัดกึ่งกลางแนวตั้ง */
+    height: 100vh;
+    /* กำหนดความสูงเต็มหน้าจอ */
+}
+
+// h1 {
+//     font-size: 20px;
+//     text-align: center;
+//     margin-bottom: 16px;
+// }
+
+// .question-group {
+//     margin-bottom: 20px;
+// }
+
+// .question-title {
+//     font-weight: bold;
+//     margin-bottom: 10px;
+//     font-size: 16px;
+// }
+
+// .option {
+//     margin: 4px 0;
+// }
+
+// .option input {
+//     margin-right: 8px;
+// }
+
+// button {
+//     width: 100%;
+//     padding: 12px;
+//     background-color: #1d4ed8;
+//     color: white;
+//     border: none;
+//     border-radius: 6px;
+//     font-size: 16px;
+//     cursor: pointer;
+// }
+
+// button:hover {
+//     background-color: #2563eb;
+// }
+
+// @media (max-width: 480px) {
+//     body {
+//         padding: 12px;
+//     }
+
+//     .form-container {
+//         padding: 16px;
+//     }
+
+//     h1 {
+//         font-size: 18px;
+//     }
+
+//     .question-title {
+//         font-size: 14px;
+//     }
+// }
+
+// .mt-4 {
+//     margin-top: 16px;
+// }
+
+// .flex-row {
+//     display: flex;
+//     flex-direction: row;
+//     /* แนวนอน */
+//     gap: 8px;
+//     /* ระยะห่างระหว่างลูก = 0.5rem หรือ 8px */
+// }
+
+// .bg-gray-500 {
+//     background-color: #6b7280;
+//     color: white;
+//     /* ปรับให้ตัวหนังสืออ่านง่าย */
+// }
+
+// .risk-highest {
+//     color: #dc2626;
+//     /* แดงเข้ม */
+//     font-weight: bold;
+// }
+
+// .risk-high {
+//     color: #f97316;
+//     /* ส้ม */
+//     font-weight: bold;
+// }
+
+// .risk-medium {
+//     color: #eab308;
+//     /* เหลือง */
+//     font-weight: bold;
+// }
+
+// .risk-low {
+//     color: #16a34a;
+//     /* เขียว */
+//     font-weight: bold;
+// }
+
+// .radio-group {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1rem;
+//     /* ระยะห่างระหว่างตัวเลือก */
+//     padding: 1rem;
+// }
+
+// .radio-label {
+//     display: flex;
+//     align-items: center;
+//     font-size: 1.2rem;
+//     /* ขนาดตัวอักษรใหญ่พอเหมาะกับมือถือ */
+//     // padding: 0.75rem 1rem;
+//     // border: 2px solid #ccc;
+//     padding-top: 0.7rem;
+//     padding-bottom: 0.7rem;
+//     padding-left: 0.7rem;
+//     border-radius: 0.5rem;
+//     cursor: pointer;
+//     transition: all 0.2s ease-in-out;
+// }
+
+// .radio-label:hover,
+// .radio-label:has(input:checked) {
+//     border-color: #007bff;
+//     background-color: #e6f0ff;
+// }
+
+// .radio-label input {
+//     margin-right: 1rem;
+//     transform: scale(1.5);
+//     /* ขยาย radio circle ให้แตะง่าย */
+// }
+.my-0 {
+    margin-top: 0px;
+}
+
+.mb-0 {
+    margin-bottom: 0px;
+}
+
+// h1 {
+//     font-size: 20px;
+// }
+
+// ion-toolbar {
+//     --background: #666666;
+// }
+
+.w-full {
+    width: 100%;
+}
+
+.font-normal {
+    font-weight: normal;
+}
+
+.font-bold {
+    font-weight: bold !important;
+}
+
+.alert-1-hdr {
+    max-height: 340px;
+}
+
+.selected {
+    --background: #B3CDFD !important;
+}
+
+.copryright {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0px;
+    font-weight: normal;
+    margin: 0px;
+    color: #000;
+}
+
+.eng-title {
+    margin: 0px;
+    font-weight: bold;
+    // font-style: italic;
+}
+
+ion-modal#example-modal {
+    --width: fit-content;
+    --min-width: 250px;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+ion-modal#example-modal h1 {
+    margin: 20px 20px 10px 20px;
+}
+
+ion-modal#example-modal ion-icon {
+    --max-width: 80%;
+    margin-right: 6px;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 4px 0;
+
+    color: #aaaaaa;
+}
+
+ion-modal#example-modal .wrapper {
+    margin-bottom: 10px;
+}
+
+.custom-modal::part(content) {
+    max-width: 75%;
+    margin: 0 auto;
+    /* center horizontally */
+    border-radius: 12px;
+}
+
+.mx-0 {
+    margin: 16px 0px;
+}
+
+#chartdiv {
+    width: 100%;
+    height: 300px;
+    background: #fef9e7;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+hr.custom-hr {
+    border: none;
+    border-top: 1px solid #d8dade;
+    /* สีฟ้า */
+    width: 100%;
+    /* ความยาว 50% */
+    margin-top: 12px;
+    // margin: 10px auto;
+    /* จัดให้อยู่กึ่งกลาง */
+}
+
+.bg-header {
+    background-image: url(../../assets/S__48447555.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,100 @@
+<ng-container *ngIf="isBrowser">
+
+  <ion-content class="ion-padding">
+
+    <ion-card class="date-time-card ion-text-center">
+      <ion-card-content>
+        <ion-text color="dark">
+          <h1 class="ion-no-margin font-bold">ลงเวลาการทำงาน</h1>
+          <h2 class="ion-no-margin font-bold">{{ currentDay }}</h2>
+          <h1 class="ion-no-margin">{{ getCurrentTime() }}</h1>
+          <p class="ion-no-margin">{{ currentDate }}</p>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list lines="none" class="ion-margin-top">
+      <ion-item>
+        <ion-label>ประเภทการทำงาน</ion-label>
+      </ion-item>
+      <ion-radio-group value="custom-checked" [(ngModel)]="workType" (ionChange)="onWorkTypeChange()">
+        <ion-item>
+          <ion-label>ประจำสาขา</ion-label>
+          <ion-radio slot="start" value="branch"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>นอกสาขา</ion-label>
+          <ion-radio slot="start" value="outside"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+      <ion-item *ngIf="workType === 'outside'">
+        <!-- <ion-input label="ระบุสาขา" placeholder="กรอกชื่อสาขา" [(ngModel)]="branchName"></ion-input> -->
+
+        <ion-input label="ระบุสาขา" placeholder="กรอกชื่อสาขา" [(ngModel)]="branchName" label-placement="floating"
+          fill="outline" mode="md"></ion-input>
+        <!-- <ion-label position="floating" class="font-bold">ระบุสาขา</ion-label>
+        <ion-input [(ngModel)]="branchName" placeholder="กรอกชื่อสาขา"></ion-input> -->
+      </ion-item>
+      <div *ngIf="workType === 'outside' && branchName">
+        <p>คุณเลือกนอกสาขา: {{ branchName }}</p>
+      </div>
+    </ion-list>
+
+    <ion-card [style.height.px]="240">
+      <!-- <mgl-map [style]="mapStyle" [zoom]="mapZoom" [center]="mapCenter" (load)="onMapLoad($event)">
+    </mgl-map> -->
+
+      <div id="map" class="map-container"></div>
+      <!-- 🔘 ปุ่มล่างขวา -->
+      <button class="map-button">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+      <!-- <button class="map-button" *ngIf="!isWatchLocation" [style.background]="'#5f5f5f'" [style.marginBottom.px]="52"
+        (click)="startTracking()">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+      <button class="map-button" *ngIf="isWatchLocation" [style.background]="'#2dd55b'" [style.marginBottom.px]="52"
+        (click)="stopTracking()">
+        <ion-icon name="locate"></ion-icon>
+      </button>  -->
+    </ion-card>
+
+    <ion-card [class.marginBottom.px]="0">
+      <ion-item lines="none" style="z-index: 3;" (click)="(isAndroid)? inputPhotoEtc.click() : inputPhotoIOS.click()">
+        <ion-label>
+          <b>เพิ่มรูปภาพ</b>
+        </ion-label>
+        <ion-icon name="camera-outline" class="ion-float-right"></ion-icon>
+      </ion-item>
+    </ion-card>
+
+    <div class="container">
+      <ng-container *ngFor="let item of filesUpload; let idx=index">
+        <ion-card class="card-img ion-margin" fxFlex="41">
+          <ion-fab-button color="light" class="ion-activatable" (click)="buttonRemoveMediaFile(idx)"
+            style="position: absolute; right: 0; width: 30px; height: 30px; z-index: 10;">
+            <ion-icon color="danger" size="small" name="close-outline"></ion-icon>
+          </ion-fab-button>
+
+          <img [src]="item?.thumb" style="width: 100%; height: auto; min-height: 141.6px; object-fit: cover;"
+            [style.minHeight.px]="item?.description ? 141.6 : 172">
+          <ng-container *ngIf="item?.description">
+            <ion-card-content class="p-1" *ngIf="item?.description">
+              {{ item?.description }}
+            </ion-card-content>
+          </ng-container>
+        </ion-card>
+      </ng-container>
+    </div>
+  </ion-content>
+  <ion-footer style="    position: absolute;
+    bottom: 0;">
+    <ion-button expand="block" class="ion-padding-horizontal ion-margin-bottom" color="success"
+      [disabled]="btnDisabled || !filesUpload.length">ลงเวลาทำงาน</ion-button>
+  </ion-footer>
+</ng-container>
+<input #inputPhotoIOS type="file" name="image" accept="image/*" (change)="onFilesInput($event)" [style.display]="'none'"
+  onclick="this.value=null;">
+<input #inputPhotoEtc type="file" name="image" accept="image/*" capture="camera" (change)="onFilesInput($event)"
+  [style.display]="'none'" onclick="this.value=null;">

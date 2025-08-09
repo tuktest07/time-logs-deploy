@@ -1,0 +1,22 @@
+<ng-container *ngIf="isBrowser">
+
+    <ion-content class="ion-padding ">
+        <div class="container">
+            <ion-card class="date-time-card ion-text-center">
+                <ion-card-content>
+                    <ion-text color="dark">
+                        <h1 class="ion-no-margin font-bold">ลงเวลาออกงาน</h1><br>
+                        <h2 class="ion-no-margin font-bold">{{ currentDay }}</h2><br>
+                        <h1 class="ion-no-margin">{{ getCurrentTime() }}</h1><br>
+                        <h1 class="ion-no-margin">สาขา XXX</h1>
+                    </ion-text>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </ion-content>
+    <ion-footer style="    position: absolute;
+    bottom: 0;">
+        <ion-button expand="block" class="ion-padding-horizontal ion-margin-bottom"
+            color="danger">ลงเวลาออกงาน</ion-button>
+    </ion-footer>
+</ng-container>

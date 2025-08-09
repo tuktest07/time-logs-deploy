@@ -1,0 +1,60 @@
+<ng-container *ngIf="isBrowser">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>ขอลางาน</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list lines="none" class="ion-margin-top">
+      <ion-item class="ion-margin-top">
+        <ion-select label="ผู้อนุมัติการลา" label-placement="floating" fill="outline" mode="md">
+          @for (item of leaveType; track $index) {
+          <ion-select-option [value]="item">{{ item }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-select label="ประเภทการลา" label-placement="floating" fill="outline" mode="md">
+          @for (item of leaveType; track $index) {
+          <ion-select-option [value]="item">{{ item }}</ion-select-option>
+          }
+        </ion-select>
+        <!-- <ion-input label="ประเภทการลา" placeholder="กรอกชื่อสาขา" label-placement="floating" fill="outline"
+          mode="md"></ion-input> -->
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-label>
+          วันที่เริ่มลา
+        </ion-label>
+        <ion-datetime-button datetime="datetime" presentation="date"></ion-datetime-button>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item><ion-item class="ion-margin-top">
+        <ion-label>
+          วันที่สิ้นสุดลา
+        </ion-label>
+        <ion-datetime-button datetime="datetime" presentation="date"></ion-datetime-button>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-textarea label="เหตุผลการลา" placeholder="กรอกชื่อสาขา" label-placement="floating" fill="outline"
+          [rows]="4" mode="md"></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+  <ion-footer style="    position: absolute;
+    bottom: 0;">
+    <ion-button expand="block" class="ion-padding-horizontal ion-margin-bottom"
+      color="primary">บันทึกขอลางาน</ion-button>
+  </ion-footer>
+</ng-container>
